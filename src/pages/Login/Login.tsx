@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import LoginWrapper from './LoginWrapper.css';
 import GroupChat from '../../assets/GroupChat.svg';
+import { getContacts } from '@/services/getContacts';
+import { createContacts } from '@/redux/state/contacts';
 
 function Login() {
   const dispatch = useDispatch();
@@ -12,8 +14,10 @@ function Login() {
 
   const login = async () => {
     try {
-      const res = await getRick();
-      dispatch(createUser({ ...res }));
+      const resUser = await getRick();
+      const resContacts = await getContacts();
+      dispatch(createUser({ ...resUser }));
+      dispatch(createContacts([...resContacts.results]));
       navigate(`/${PrivateRoutes.PRIVATE}`, { replace: true });
     } catch (error) {
       console.log(error);

@@ -11,7 +11,6 @@ const LoginWrapper = styled.section`
     width: 100%;
     justify-content: space-between;
     padding: 1rem 10%;
-    /* background-color: #9c6bba; */
 
     button {
       cursor: pointer;
