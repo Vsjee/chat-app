@@ -1,21 +1,23 @@
 import styled from 'styled-components';
 
-const ContactCardWrapper = styled.button`
-  cursor: pointer;
-  display: flex;
-  border: none;
-  background: none;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem 0;
-  padding: 0.5rem 5%;
-  border-radius: 55px;
-  box-shadow: rgba(33, 35, 38, 0.2) 0px 10px 10px -10px;
-  transition: 0.3s ease-in;
+const ContactCardWrapper = styled.article`
+  a {
+    cursor: pointer;
+    display: flex;
+    border: none;
+    background: none;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 5%;
+    border-radius: 55px;
+    box-shadow: rgba(33, 35, 38, 0.2) 0px 10px 10px -10px;
+    transition: 0.3s ease-in;
+    color: #000;
 
-  &:hover {
-    background-color: #daabf7;
+    &:hover {
+      background-color: #daabf7;
+    }
   }
 
   .picture {
