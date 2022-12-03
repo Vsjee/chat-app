@@ -4,7 +4,6 @@ const DashboardWrapper = styled.section`
   display: flex;
   flex-direction: row;
   height: 100vh;
-  /* background-color: #9c6bba; */
 
   .contactList__nav {
     display: flex;
@@ -41,8 +40,12 @@ const DashboardWrapper = styled.section`
   }
 
   .outlet {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+      url(https://images.unsplash.com/photo-1573614999645-e5f0f16ec15d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-repeat: no-repeat;
+    color: #fff;
+    background-size: cover;
     width: 60%;
-    background-color: #9c6bba;
   }
 
   @media screen and (max-width: 768px) {
