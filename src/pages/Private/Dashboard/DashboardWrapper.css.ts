@@ -35,7 +35,7 @@ const DashboardWrapper = styled.section`
   }
 
   .contactList {
-    overflow: scroll;
+    overflow: auto;
     width: 40%;
   }
 

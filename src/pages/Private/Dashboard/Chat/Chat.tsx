@@ -8,34 +8,40 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 import Messsage from './Messsage/Messsage';
 
 function Chat() {
-  const [messages, setMessages] = useState([]);
-  const [mss, setMss] = useState('');
-  const textRef = useRef<HTMLInputElement>(null);
+  const chatContainer = useRef<HTMLDivElement>(null);
+  const [messages, setMessages] = useState<string[]>([]);
   const contacts = JSON.parse(localStorage.getItem(contactsKey) as string);
   const { contactId } = useParams();
   const contact = contacts?.res.find((item: UserInfo) => String(item.id) === contactId);
 
-  const msg = ['hola', 'que mas', 'bro', "what's up nigga"];
+  const scrollToMyRef = () => {
+    const sH = chatContainer.current?.scrollHeight !== undefined ? chatContainer.current?.scrollHeight : 0;
+    const cH = chatContainer.current?.clientHeight !== undefined ? chatContainer.current?.clientHeight : 0;
+    const scroll = sH - cH;
+    chatContainer.current?.scrollTo(0, scroll);
+  };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const newMsg = textRef.current?.value !== null ? textRef.current?.value : null;
-    console.log(newMsg);
+    return e.target.msg.value !== ''
+      ? (setMessages((prev: string[]) => {
+          return [e.target.msg.value, ...prev];
+        }),
+        scrollToMyRef())
+      : (e.target.msg.value = '');
   };
 
   return (
     <ChatWrapper>
       <ChatNav contact={contact} />
       <article className="chat">
-        <div className="chat__container">
-          <ul className="chat__container__msg">
-            {msg.map((item, i) => (
-              <Messsage msg={item} key={i} />
-            ))}
-          </ul>
+        <div ref={chatContainer as React.RefObject<HTMLDivElement>} className="chat__container">
+          {messages.map((item, i) => (
+            <Messsage msg={item} key={i} />
+          ))}
         </div>
         <form action="" onSubmit={handleSubmit}>
-          <input ref={textRef} type="text" name="msg" className="chat__input" placeholder="enter a message..." />
+          <input type="text" name="msg" className="chat__input" placeholder="enter a message..." />
           <button className="chat__btn" type="submit">
             <MdKeyboardArrowRight className="chat__btn__icon" />
           </button>

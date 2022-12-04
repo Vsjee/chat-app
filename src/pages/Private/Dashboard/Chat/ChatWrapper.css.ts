@@ -9,21 +9,16 @@ const ChatWrapper = styled.section`
 
   .chat {
     padding: 0 1rem 1rem 1rem;
+    overflow: hidden;
 
     .chat__container {
       width: 100%;
       height: 75vh;
       margin: 0 0 1rem 0;
-    }
-
-    .chat__container__msg {
-      padding-bottom: 2rem;
-      width: 100%;
-      height: 75vh;
+      overflow-y: scroll;
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: end;
+      flex-direction: column-reverse;
+      align-items: end;
       list-style: none;
       gap: 1rem;
     }
