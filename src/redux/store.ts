@@ -5,7 +5,7 @@ import userSlice from './state/users';
 
 export interface AppStore {
   user: UserInfo;
-  contact: ContactInfo;
+  contact: ContactInfo[];
 }
 
 const myStore = configureStore<AppStore>({
