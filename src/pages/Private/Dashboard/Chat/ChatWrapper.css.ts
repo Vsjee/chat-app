@@ -1,19 +1,34 @@
 import styled from 'styled-components';
 
 const ChatWrapper = styled.section`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   color: #fff;
 
-  article {
-    background-image: radial-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-      url(https://images.unsplash.com/photo-1573614999645-e5f0f16ec15d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 89.4vh;
-  }
-
   .chat {
-    form {
+    padding: 0 1rem 1rem 1rem;
+
+    .chat__container {
       width: 100%;
+      height: 75vh;
+      margin: 0 0 1rem 0;
+    }
+
+    .chat__container__msg {
+      padding-bottom: 2rem;
+      width: 100%;
+      height: 75vh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: end;
+      list-style: none;
+      gap: 1rem;
+    }
+
+    form {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -22,7 +37,7 @@ const ChatWrapper = styled.section`
   }
 
   .chat__input {
-    padding: 0.3rem;
+    padding: 0.5rem;
     border: none;
     border-radius: 15px;
     width: 60%;
